@@ -20,9 +20,7 @@ export default {
 			this.socket.onopen = this.onopen;
 			this.socket.onmessage = this.onmessage;
 		},
-		onopen(e) {
-			console.log('onopen', e);
-		},
+		onopen() {},
 		onmessage(e) {
 			console.log('onmessage', e);
 		},
@@ -30,7 +28,11 @@ export default {
 			this.socket.send(
 				JSON.stringify({
 					event: 'events',
-					data: 'test',
+					data: {
+						a: 1,
+						b: 2,
+						c: 3,
+					},
 				}),
 			);
 		},
